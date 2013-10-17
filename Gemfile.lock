@@ -26,6 +26,8 @@ GEM
       rack (>= 1.0)
     slop (3.4.6)
     test-unit (2.5.5)
+    test-unit-notify (1.0.1)
+      test-unit (>= 2.4.9)
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -41,4 +43,5 @@ DEPENDENCIES
   rack (~> 1.5.2)
   rack-test
   test-unit
+  test-unit-notify
   thin (~> 1.5.1)

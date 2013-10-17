@@ -32,5 +32,5 @@ end
 #Test unitarios
 desc "run the unit tests"
 task :test do
-  sh "ruby test.rb"
+  sh "ruby test.rb "
 end
