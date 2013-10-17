@@ -1,8 +1,9 @@
-<center>![](http://www.chistes21.com/img/chistes/3935_piedra-papel-o-tijera.jpg)</center>
+<center>![](http://www.portadasfacebook.net/panel/watermark.php?FOTO=portadas/piedra-papel-o-tijera.jpg)</center>
 
 
 Práctica 3:
-===========
+=========== 
+
  
 1. Objetivo
 -----------
@@ -36,4 +37,4 @@ Podemos ejecutarlo de dos formas:
 
 	Ángela Hdez D.
 
-<center>![](http://www.portadasfacebook.net/panel/watermark.php?FOTO=portadas/piedra-papel-o-tijera.jpg)</center>
+<center>![](http://www.chistes21.com/img/chistes/3935_piedra-papel-o-tijera.jpg)</center>
