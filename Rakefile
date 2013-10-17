@@ -34,3 +34,8 @@ desc "run the unit tests"
 task :test do
   sh "ruby test.rb "
 end
+
+desc "run rspec test"
+task :rspec do
+  sh "rspec spec/RockPaperScissors/rps_spec.rb"
+end

@@ -1,6 +1,6 @@
 require "test/unit"
 require "rack/test"
-require './lib/rps.rb'
+require './lib/RockPaperScissors/rps.rb'
 
 
 class AppTest < Test::Unit::TestCase 
