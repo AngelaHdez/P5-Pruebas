@@ -37,5 +37,5 @@ end
 
 desc "run rspec test"
 task :rspec do
-  sh "rspec spec/RockPaperScissors/rps_spec.rb"
+  sh "rspec -Ilib -Itest spec/RockPaperScissors/app_spec.rb"
 end

@@ -1,6 +1,6 @@
 require "test/unit"
 require "rack/test"
-require './lib/RockPaperScissors/rps.rb'
+require './lib/RockPaperScissors/app.rb'
 
 
 class AppTest < Test::Unit::TestCase 
@@ -15,5 +15,6 @@ class AppTest < Test::Unit::TestCase
 	    get "/"
 	    assert last_response.ok?
 	end
+	
 
 end
