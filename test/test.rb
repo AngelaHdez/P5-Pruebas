@@ -26,16 +26,17 @@ class AppTest < Test::Unit::TestCase
 
 	def test_footer
 		get"/"
-		assert last_response.footer.include?("Angela Hdez")	
+		assert_match "<h2>Angela Hdez</h2>", last_response.body
 	end
 
 	def test_header
 		get"/"
-		assert last_response.header.include?("RPS")	
+    	assert_match "<title>RPS</title>", last_response.body
 	end
 
-    #def cookie
-	#	get "/"	
-	#	assert expired?
-	#end
+	def test_static_asset
+	    get "/public/css/style.css"
+	    assert last_response.ok?
+  	end
+
 end
