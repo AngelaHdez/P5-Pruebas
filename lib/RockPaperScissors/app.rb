@@ -26,10 +26,10 @@ module RockPaperScissors
       @session['gana'] = value
     end
 
-    #def tira
-    #  return @session['tira'].to_i if @session['tira'] 
-    #  @session['tira'] = 0
-    #end
+    def tira
+      return @session['tira'].to_i if @session['tira'] 
+      @session['tira'] = 0
+    end
 
     def tira=(value)
       @session['tira'] = value
@@ -55,7 +55,7 @@ module RockPaperScissors
         do_it = "Choose one"
       else
         computer_throw = @throws.sample
-      #  self.tira = self.tira + 1
+        self.tira = self.tira + 1
       end
       puts #{player_throw}
       puts #{computer_throw}
@@ -72,8 +72,7 @@ module RockPaperScissors
       ######COOKIE#########
        self.gana= (self.gana() + 1) 
       end
-      a = self.gana
-      puts a
+      
      
       resultado = 
         {:do_it => do_it,
@@ -82,7 +81,7 @@ module RockPaperScissors
         :computer_throw => computer_throw,
         :player_throw => player_throw,
         :cookie => self.gana,
-        #:jugar => self.tira,
+        :jugar => self.tira,
       }
       res = Rack::Response.new(haml("views/index.html.haml", resultado))
 
