@@ -4,6 +4,7 @@
     %link{:href => "public/css/bootstrap.css", :rel => "stylesheet"}
     %link{:href => "public/css/bootstrap-responsive.css", :rel => "stylesheet"}
     %link{:href => "public/css/style.css", :rel => "stylesheet"}
+    %title RPS
   %body
 
     .navbar.navbar-inverse.navbar-fixed-top
@@ -19,7 +20,7 @@
             %h4 Elige uno para esta jugada
             %ol
               -throws.map do |x| 
-                %a{:href => "?choice=#{x}"} 
+                %a{:href => "?choice=#{x}", :label=>"#{x}"} 
                   -if ("#{x}" == 'rock')
                     %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png", :alt => 'Rock', :id=>'img1'}
                   -elsif ("#{x}" == 'paper')
@@ -98,16 +99,17 @@
           %br
           %img{:src => "http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png", :alt => 'Scissors', :id=>'img1'}
     
-    .row.span12  
-      .footer
-        .navbar.navbar-inner.navbar-inverse.container
-          Angela Hdez
-          %br
-          Fotos obtenidas de google imagenes.
-          %br
-          %h2 El usuario ha ganado estas veces:
-          %h3=cookie
-          %h2 Se han jugado:
-          %h3=jugar
+  %footer
+  .row.span12  
+    .footer
+      .navbar.navbar-inner.navbar-inverse.container
+        %h2 Angela Hdez
+        %br
+        Fotos obtenidas de google imagenes.
+        %br
+        %h2 El usuario ha ganado estas veces:
+        %h3 cookie
+        %h2 Se han jugado:
+        %h3 jugar
 
     

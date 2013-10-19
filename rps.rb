@@ -7,8 +7,8 @@ builder = Rack:: Builder.new do
   use Rack::Lint
   use Rack::Session::Cookie, 
       :key => 'rack.session', 
-      :domain => 'example.com',
-      :secret => 'some_secret',
+      :domain => 'www.example.com',
+      :secret => 'gana',
       :expire_after => 30
   run RockPaperScissors::App.new
 
