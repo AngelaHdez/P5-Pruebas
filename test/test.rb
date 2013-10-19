@@ -11,6 +11,7 @@ class AppTest < Test::Unit::TestCase
 			run RockPaperScissors::App.new
 		end.to_app
 	end
+	
 	def test_index
 	    get "/"
 	    assert last_response.ok?

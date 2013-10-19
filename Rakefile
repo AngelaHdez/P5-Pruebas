@@ -32,7 +32,7 @@ end
 #Test unitarios
 desc "run the unit tests"
 task :test do
-  sh "ruby test.rb "
+  sh "ruby test/test.rb "
 end
 
 desc "run rspec test"

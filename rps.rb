@@ -17,6 +17,6 @@ end
 #Rack::Handler::Thin.run builder
 use Rack::Server.start(
   	:app=> builder,
-  	:Port=>9393,
+  	:Port=>8080,
   	:server=>'thin',
   	:host => 'www.example.com')
