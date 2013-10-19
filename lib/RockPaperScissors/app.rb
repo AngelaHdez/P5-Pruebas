@@ -14,6 +14,7 @@ module RockPaperScissors
     def set_env(env)
       @env = env
       @session = env['rack.session']
+
     end
 
     #def gana
@@ -21,18 +22,18 @@ module RockPaperScissors
     #  @session['gana'] = 0
     #end
 
-    def gana=(value)
-      @session['gana'] = value
-    end
+    #def gana=(value)
+    #  @session['gana'] = value
+    #end
 
     #def tira
     #  return @session['tira'].to_i if @session['tira'] 
     #  @session['tira'] = 0
     #end
 
-    def tira=(value)
-      @session['tira'] = value
-    end
+    #def tira=(value)
+    #  @session['tira'] = value
+    #end
 
     #Acceso al HTML para mostrar los resultados
     def haml(template, resultado)
@@ -69,17 +70,16 @@ module RockPaperScissors
 
       if anwser == "win"
       ######COOKIE#########
-     #   self.gana= self.gana + 1 
+      # self.gana= self.gana + 1 
       end
-
-      
+     
       resultado = 
         {:do_it => do_it,
         :anwser => anwser,
         :throws => @throws,
         :computer_throw => computer_throw,
         :player_throw => player_throw,
-        #:cookie => self.gana,
+       # :cookie => self.gana,
         #:jugar => self.tira,
       }
       res = Rack::Response.new(haml("views/index.html.haml", resultado))

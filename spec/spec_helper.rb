@@ -1,4 +1,4 @@
 require 'rspec'
 require 'rack'
 
-require 'RockPaperScissors'
+require 'RockPaperScissors/app'

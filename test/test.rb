@@ -5,6 +5,8 @@ require './lib/RockPaperScissors/app.rb'
 
 class AppTest < Test::Unit::TestCase 
 	include Rack::Test::Methods
+	attr_reader :gana
+	attr_reader :tira
 	
 	def app
             Rack::Builder.new do

@@ -1,3 +1,3 @@
 require 'rack'
 
-require 'RockPaperScissors/App'
+require 'RockPaperScissors/app'

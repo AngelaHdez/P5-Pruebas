@@ -6,10 +6,17 @@ builder = Rack:: Builder.new do
   use Rack::ShowExceptions
   use Rack::Lint
   use Rack::Session::Cookie, 
-      :key => 'rack.session', 
-      :domain => 'www.example.com',
-      :secret => 'gana',
+      :key => 'gana', 
+      :domain => 'example.com',
+      :secret =>'gana',
       :expire_after => 30
+
+  use Rack::Session::Cookie, 
+      :key => 'tira', 
+      :domain => 'example.com',
+      :secret => 'tira',
+      :expire_after => 30
+
   run RockPaperScissors::App.new
 
 end
