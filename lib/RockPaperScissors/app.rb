@@ -6,23 +6,32 @@ require 'haml'
 module RockPaperScissors
   class App 
 
-    def initialize()
+    def initialize(app=nil )
       @defeat = {'rock' => 'scissors', 'paper' => 'rock', 'scissors' => 'paper'}
+      @app = app
       @throws = ''
     end
-
     def set_env(env)
       @env = env
       @session = env['rack.session']
     end
 
-    def some_key 
-      return @session['some_key'].to_i if @session['some_key']
-      @session['some_key'] = 0
+    def gana
+      return @session['gana'].to_i if @session['gana'] 
+      @session['gana'] = 0
     end
 
-    def some_key=(value)
-      @session['some_key'] = value
+    def gana=(value)
+      @session['gana'] = value
+    end
+
+    def tira
+      return @session['tira'].to_i if @session['tira'] 
+      @session['tira'] = 0
+    end
+
+    def tira=(value)
+      @session['tira'] = value
     end
 
     #Acceso al HTML para mostrar los resultados
@@ -32,6 +41,7 @@ module RockPaperScissors
     end
 
     def call(env)
+      set_env(env)
       player_throw = ''
       anwser = ''
       req = Rack::Request.new(env)
@@ -44,6 +54,7 @@ module RockPaperScissors
         do_it = "Choose one"
       else
         computer_throw = @throws.sample
+        self.tira = self.tira + 1
       end
       puts #{player_throw}
       puts #{computer_throw}
@@ -51,17 +62,26 @@ module RockPaperScissors
       anwser= if (player_throw == computer_throw && (player_throw != '' || computer_throw!=''))
         "tied"
       elsif computer_throw == @defeat[player_throw]
-        "win"
+        "win"  
       else
         "loose"
       end
 
+      if anwser == "win"
+      ######COOKIE#########
+        self.gana= self.gana + 1 
+      end
+
+      
       resultado = 
         {:do_it => do_it,
         :anwser => anwser,
         :throws => @throws,
         :computer_throw => computer_throw,
-        :player_throw => player_throw}
+        :player_throw => player_throw,
+        :cookie => self.gana,
+        :jugar => self.tira,
+      }
       res = Rack::Response.new(haml("views/index.html.haml", resultado))
 
     end # call
