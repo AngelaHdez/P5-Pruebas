@@ -17,23 +17,23 @@ module RockPaperScissors
 
     end
 
-    #def gana
-    #  return @session['gana'].to_i if @session['gana'] 
-    #  @session['gana'] = 0
-    #end
+    def gana()
+      return @session['gana'].to_i if @session['gana'] 
+      @session['gana'] = 0
+    end
 
-    #def gana=(value)
-    #  @session['gana'] = value
-    #end
+    def gana=(value)
+      @session['gana'] = value
+    end
 
     #def tira
     #  return @session['tira'].to_i if @session['tira'] 
     #  @session['tira'] = 0
     #end
 
-    #def tira=(value)
-    #  @session['tira'] = value
-    #end
+    def tira=(value)
+      @session['tira'] = value
+    end
 
     #Acceso al HTML para mostrar los resultados
     def haml(template, resultado)
@@ -70,8 +70,10 @@ module RockPaperScissors
 
       if anwser == "win"
       ######COOKIE#########
-      # self.gana= self.gana + 1 
+       self.gana= (self.gana() + 1) 
       end
+      a = self.gana
+      puts a
      
       resultado = 
         {:do_it => do_it,
@@ -79,7 +81,7 @@ module RockPaperScissors
         :throws => @throws,
         :computer_throw => computer_throw,
         :player_throw => player_throw,
-       # :cookie => self.gana,
+        :cookie => self.gana,
         #:jugar => self.tira,
       }
       res = Rack::Response.new(haml("views/index.html.haml", resultado))

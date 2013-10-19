@@ -1,7 +1,7 @@
 require './lib/RockPaperScissors/app.rb'
 
 
-builder = Rack:: Builder.new do
+builder = Rack::Builder.new do
   use Rack::Static, :urls => ['/public']
   use Rack::ShowExceptions
   use Rack::Lint
