@@ -5,8 +5,6 @@ require './lib/RockPaperScissors/app.rb'
 
 class AppTest < Test::Unit::TestCase 
 	include Rack::Test::Methods
-	attr_reader :gana
-	attr_reader :tira
 	
 	def app
             Rack::Builder.new do
@@ -14,11 +12,25 @@ class AppTest < Test::Unit::TestCase
             end
     end
 
+    def inicilizar 
+    	computer_throw  = 'scissors'
+    end
+
+    def test_ganador
+    	get "/?choice='rock'"
+    	assert last_response.body.include?("Ganaste!")
+    end
+
+    def test_boton
+    	get "/?choice='scissors'"
+    	assert last_response.body.include?("Juega otra vez")
+    end
+
 	def test_url
 	    browser = Rack::Test::Session.new(Rack::MockSession.new(RockPaperScissors::App.new))
     	browser.get '/'
     	assert browser.last_response.ok?
-	end
+   	end
 
 	def test_body
         get "/"
