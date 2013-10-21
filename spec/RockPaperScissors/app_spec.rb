@@ -24,6 +24,21 @@ describe RockPaperScissors::App do
 		it "debe mostrar tijeras" do 
 			app.get("/?choice='scissors'").body.include?("http://banot.etsii.ull.es/alu4079/STYW/rps/tijeras.png")
 		end
+
+		it "debe ganar" do
+			computer_throw='paper'
+			app.get("/?choice='scissors'").body.include?("Ganaste!")
+		end
+
+		it "debe perder" do
+			computer_throw='rock'
+			app.get("/?choice='scissors'").body.include?("Perdiste!")
+		end
+
+		it "empate" do
+			computer_throw = 'scissors'
+			app.get("/?choice='scissors'").body.include?("Empate!")
+		end
 	end
 
 	context "/?choice='rock'" do 
@@ -34,6 +49,21 @@ describe RockPaperScissors::App do
 		it "debe mostrar roca" do 
 			app.get("/?choice='rock'").body.include?("http://banot.etsii.ull.es/alu4079/STYW/rps/piedra.png")
 		end
+
+		it "debe ganar" do
+			computer_throw='scissors'
+			app.get("/?choice='rock'").body.include?("Ganaste!")
+		end
+
+		it "debe perder" do
+			computer_throw='paper'
+			app.get("/?choice='rock'").body.include?("Perdiste!")
+		end
+
+		it "empate" do
+			computer_throw = 'rock'
+			app.get("/?choice='rock'").body.include?("Empate!")
+		end
 	end
 
 	context "/?choice='paper'" do 
@@ -43,6 +73,21 @@ describe RockPaperScissors::App do
 
 		it "debe mostrar papel" do 
 			app.get("/?choice='paper'").body.include?("http://banot.etsii.ull.es/alu4079/STYW/rps/papel.png")
+		end
+
+		it "debe ganar" do
+			computer_throw='rock'
+			app.get("/?choice='paper'").body.include?("Ganaste!")
+		end
+
+		it "debe perder" do
+			computer_throw='scissors'
+			app.get("/?choice='paper'").body.include?("Perdiste!")
+		end
+
+		it "empate" do
+			computer_throw = 'paper'
+			app.get("/?choice='paper'").body.include?("Empate!")
 		end
 	end
 end

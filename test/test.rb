@@ -20,12 +20,8 @@ class AppTest < Test::Unit::TestCase
     	get "/?choice='rock'"
     	assert last_response.body.include?("Ganaste!")
     end
-
-    def test_boton
-    	get "/?choice='scissors'"
-    	assert last_response.body.include?("Juega otra vez")
-    end
-
+###empate y perdiste 
+    
 	def test_url
 	    browser = Rack::Test::Session.new(Rack::MockSession.new(RockPaperScissors::App.new))
     	browser.get '/'
@@ -48,6 +44,25 @@ class AppTest < Test::Unit::TestCase
     	assert_match "<title>RPS</title>", last_response.body
 	end
 
+	def test_boton
+    	get "/?choice='scissors'"
+    	assert last_response.body.include?("Juega otra vez")
+    end
+
+	def test_link_papel
+    	get "/"
+    	assert_match "<a href='?choice=paper' label='paper'>", last_response.body
+    end
+	
+	def test_link_scissors
+    	get "/"
+    	assert_match "<a href='?choice=scissors' label='scissors'>", last_response.body
+    end
+
+    def test_link_rock
+    	get "/"
+    	assert_match "<a href='?choice=rock' label='rock'>", last_response.body
+    end	
 	def test_static_asset
 	    get "/public/css/style.css"
 	    assert last_response.ok?
