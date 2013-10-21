@@ -3,7 +3,7 @@ require 'spec_helper'
 describe RockPaperScissors::App do
 	#let(:app) {Rack::MockRequest.new(RockPaperScissors::App.new)}
 	def app
-    	Rack::MockRequest.new(RockPaperScissors::App.new) 
+    	Rack::Test::Session.new(Rack::MockSession.new(RockPaperScissors::App.new)) 
   	end
 
 	context "/" do
@@ -18,7 +18,9 @@ describe RockPaperScissors::App do
 
 	context "/?choice='scissors'" do 
 		it "debe devolver el codigo 200" do
+			#puts "**************************#{rack_mock_session.cookie_jar.inspect}" 
 			app.get("/?choice='scissors'").status.should == 200
+
 		end
 
 		it "debe mostrar tijeras" do 

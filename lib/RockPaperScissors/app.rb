@@ -15,6 +15,7 @@ module RockPaperScissors
       @env = env
       @session = env['rack.session']
 
+
     end
 
     def gana()
@@ -71,7 +72,7 @@ module RockPaperScissors
 
       if anwser == "win"
       ######COOKIE#########
-       self.gana= self.gana() + 1
+      self.gana= self.gana() + 1
       end
       
      
