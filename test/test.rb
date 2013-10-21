@@ -20,7 +20,6 @@ class AppTest < Test::Unit::TestCase
     	get "/?choice='rock'"
     	assert last_response.body.include?("Ganaste!")
     end
-###empate y perdiste 
     
 	def test_url
 	    browser = Rack::Test::Session.new(Rack::MockSession.new(RockPaperScissors::App.new))

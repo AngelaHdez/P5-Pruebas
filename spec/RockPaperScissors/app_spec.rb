@@ -90,4 +90,6 @@ describe RockPaperScissors::App do
 			app.get("/?choice='paper'").body.include?("Empate!")
 		end
 	end
+
+	##cookie
 end
