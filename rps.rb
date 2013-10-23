@@ -8,14 +8,9 @@ builder = Rack::Builder.new do
   use Rack::Session::Cookie, 
       :key => 'gana', 
       :domain => 'example.com',
-      :secret =>'gana',
+      :secret =>'cookie',
       :expire_after => 30
 
-  use Rack::Session::Cookie, 
-      :key => 'tira', 
-      :domain => 'example.com',
-      :secret => 'tira',
-      :expire_after => 30
 
   run RockPaperScissors::App.new
 

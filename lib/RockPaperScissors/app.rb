@@ -14,8 +14,6 @@ module RockPaperScissors
     def set_env(env)
       @env = env
       @session = env['rack.session']
-
-
     end
 
     def gana()
