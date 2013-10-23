@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pp'
 
 describe RockPaperScissors::App do
 	#let(:app) {Rack::MockRequest.new(RockPaperScissors::App.new)}
@@ -10,7 +11,10 @@ describe RockPaperScissors::App do
 
 	context "/" do
 		it "debe devolver el codigo 200 success" do
-			app.get('/').status.should == 200
+			res =app.get('/')
+			res.status.should == 200
+			#pp app
+			
 		end
 
 		it "debe mostrar RPS" do
