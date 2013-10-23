@@ -2,6 +2,7 @@ require 'rack'
 require 'rack/request'
 require 'rack/response'
 require 'haml'
+require 'pp'
 
 module RockPaperScissors
   class App 
@@ -60,12 +61,14 @@ module RockPaperScissors
       puts #{player_throw}
       puts #{computer_throw}
       
-      anwser= if (player_throw == computer_throw && (player_throw != '' || computer_throw!=''))
-        "tied"
-      elsif computer_throw == @defeat[player_throw]
-        "win"  
-      else
-        "loose"
+      anwser=if (player_throw != nil || computer_throw!= nil)
+       if (player_throw == computer_throw )
+          "tied"
+        elsif computer_throw == @defeat[player_throw]
+          "win"  
+        else
+          "loose"
+        end
       end
 
       if anwser == "win"
