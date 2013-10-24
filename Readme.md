@@ -8,30 +8,30 @@ Práctica 3:
 1. Objetivo
 -----------
 
-	Práctica: Añadir Template Haml a Rock, Paper, Scissors
+	Práctica:Testing Rock, Paper, Scissors
 
-	Usar Haml para crear un template index.haml en un directorio views. 
-	
 
 2. Instalación
 --------------
 
-	2.1 Instalaremos las gemas necesarias: bundle install
-	2.2 Configuraremos el fichero configure.rb siguiendo las directrices del fichero configure.rb.example
+	1 Instalaremos las gemas necesarias: bundle install
+
 
 3. Ejecución
 ------------
 
 Podemos ejecutarlo de dos formas:
 
-	3.1 rake
-	3.2 Una vez arrancado el servidor podremos hacer uso de 
-		3.2.1 rake rock
-		3.2.2 rake scissors
-		3.2.3 rake paper
-		3.2.4 rake index (sólo en la práctica 4)
-	3.3 Iremos a 'http://localhost:8080/' para poder usar la aplicación
-
+	3.1 Podemos usar test unitarios con 'rake test'
+	3.2 Podemos arrancar test rspec con 'rake rspec'
+	3.3 Modificaremos nuestro fichero '/etc/hosts' modificando la línea '127.0.0.1 localhost' a '127.0.0.1 localhost www.example.com'
+	3.4 Haremos rake e iremos a 'www.example.com:8080/' para poder usar la aplicación
+	3.5 Una vez arrancado el servidor, en una nueva terminal podremos hacer uso de:
+		3.5.1 rake rock
+		3.5.2 rake scissors
+		3.5.3 rake paper
+		3.5.4 rake index
+		
 4.Desarrollador
 ---------------
 
